@@ -14,7 +14,7 @@ If any error there is possbility to items are missing so move to other tag.
 
 Misisng package logrus in docker-ce/components/engine/hack/dockerfile/install/gotestsum.installer in after change:
 cat gotestsum.installer
-!/bin/sh
+#!/bin/sh
 
 GOTESTSUM_COMMIT='v0.3.5'
 
