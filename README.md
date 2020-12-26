@@ -10,3 +10,19 @@ Wiki:
 4. make static DOCKER_BUILD_PKGS=static-linux DOCKER_BUILDKIT=0
 
 If any error there is possbility to items are missing so move to other tag.
+
+
+Misisng package logrus in docker-ce/components/engine/hack/dockerfile/install/gotestsum.installer in after change:
+cat gotestsum.installer
+!/bin/sh
+
+GOTESTSUM_COMMIT='v0.3.5'
+
+install_gotestsum() {
+        echo "Installing gotestsum version $GOTESTSUM_COMMIT"
+        go get -d gotest.tools/gotestsum
+        go get -d github.com/sirupsen/logrus
+        cd "$GOPATH/src/gotest.tools/gotestsum"
+        git checkout -q "$GOTESTSUM_COMMIT"
+        go build -buildmode=pie -o "${PREFIX}/gotestsum" 'gotest.tools/gotestsum'
+
