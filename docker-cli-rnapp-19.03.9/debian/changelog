@@ -1,0 +1,5 @@
+docker-cli-rnapp (19.03.9) stable; urgency=medium
+
+  * Initial release of docker-cli-rnapp app on readynas.
+
+ -- Gary Tessman <gary.tessman@gmail.com>  Sun, 1 Jan 2023 15:00:00 -0700

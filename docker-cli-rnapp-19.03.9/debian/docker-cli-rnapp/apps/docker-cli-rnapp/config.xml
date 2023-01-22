@@ -1,0 +1,13 @@
+<Application resource-id="docker-cli-rnapp">
+  <Category>APP_CAT_PRODUCTIVITY</Category>
+  <Name>Docker CE</Name>
+  <Author>Gary Tessman</Author>
+  <Version>19.03.9</Version>
+  <RequireReboot>0</RequireReboot>
+  <ConfigURL/>
+  <LaunchURL/>
+  <ReservePort/>
+  <DebianPackage>docker-cli-rnapp</DebianPackage>
+  <ServiceName>docker.service</ServiceName>
+  <Description lang="en-us">This app installs the Docker CLI for ReadyNAS.</Description>
+</Application>

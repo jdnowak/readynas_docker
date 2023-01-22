@@ -1,0 +1,8 @@
+apps/docker-cli-rnapp/bin/docker usr/bin/docker
+apps/docker-cli-rnapp/bin/docker-init usr/bin/docker-init
+apps/docker-cli-rnapp/bin/containerd-shim usr/bin/containerd-shim
+apps/docker-cli-rnapp/bin/docker-proxy usr/bin/docker-proxy
+apps/docker-cli-rnapp/bin/ctr usr/bin/ctr
+apps/docker-cli-rnapp/bin/containerd usr/bin/containerd
+apps/docker-cli-rnapp/bin/dockerd usr/bin/dockerd
+apps/docker-cli-rnapp/bin/runc usr/bin/runc

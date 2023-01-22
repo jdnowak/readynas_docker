@@ -1,0 +1,12 @@
+d2e325da535c0c2f631d15b5b8a5f578  apps/docker-cli-rnapp/bin/containerd
+d3f06b40c9c8f055b0e8c3e075e714bf  apps/docker-cli-rnapp/bin/containerd-shim
+e2584c816dd9c58ddb7724b71ae79278  apps/docker-cli-rnapp/bin/ctr
+c68b2a211a14ecc718d0a4c86c3ed2bb  apps/docker-cli-rnapp/bin/docker
+c16dd687dd5c5a3fdefc3f1919288b31  apps/docker-cli-rnapp/bin/docker-init
+8695820fc9de289d90fb329131ccc126  apps/docker-cli-rnapp/bin/docker-proxy
+8621a28ea8b81179060cee9b60265eaa  apps/docker-cli-rnapp/bin/dockerd
+c14e9e5684600abd5483ff20b219fe09  apps/docker-cli-rnapp/bin/runc
+49f93c1eef741ec15dc7d9ffd3ca8c42  apps/docker-cli-rnapp/config.xml
+2a38e24f49d02e8cd6d9727fd1256051  apps/docker-cli-rnapp/logo.png
+dde6c472ae3ff59af37f5d33a2455ebe  usr/share/doc/docker-cli-rnapp/changelog.gz
+6fef2f34d32cdad35e685f2c8428f603  usr/share/lintian/overrides/docker-cli-rnapp
