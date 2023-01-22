@@ -1,0 +1,15 @@
+docker-cli-rnapp: non-standard-toplevel-dir apps/
+docker-cli-rnapp: file-in-unusual-dir apps/docker-cli-rnapp/*
+docker-cli-rnapp: statically-linked-binary apps/docker-cli-rnapp/bin/*
+docker-cli-rnapp: systemd-service-file-outside-lib etc/systemd/system/docker.service
+docker-cli-rnapp: maintainer-script-calls-systemctl postinst:6
+docker-cli-rnapp: unknown-section contrib
+docker-cli-rnapp: binary-without-manpage usr/bin/containerd
+docker-cli-rnapp: binary-without-manpage usr/bin/containerd-shim
+docker-cli-rnapp: binary-without-manpage usr/bin/ctr
+docker-cli-rnapp: binary-without-manpage usr/bin/docker
+docker-cli-rnapp: binary-without-manpage usr/bin/docker-init
+docker-cli-rnapp: binary-without-manpage usr/bin/docker-proxy
+docker-cli-rnapp: binary-without-manpage usr/bin/dockerd
+docker-cli-rnapp: binary-without-manpage usr/bin/runc
+docker-cli-rnapp: maintainer-script-ignores-errors postinst

@@ -1,0 +1,8 @@
+dpkg-divert --local --add --package docker-cli-rnapp --rename --divert /usr/bin/docker-containerd.disabled /usr/bin/docker-containerd
+dpkg-divert --local --add --package docker-cli-rnapp --rename --divert /usr/bin/docker-containerd-shim.disabled /usr/bin/docker-containerd-shim
+dpkg-divert --local --add --package docker-cli-rnapp --rename --divert /usr/bin/docker-containerd-ctr.disabled /usr/bin/docker-containerd-ctr
+dpkg-divert --local --add --package docker-cli-rnapp --rename --divert /usr/bin/docker.disabled /usr/bin/docker
+dpkg-divert --local --add --package docker-cli-rnapp --rename --divert /usr/bin/docker-init.disabled /usr/bin/docker-init
+dpkg-divert --local --add --package docker-cli-rnapp --rename --divert /usr/bin/docker-proxy.disabled /usr/bin/docker-proxy
+dpkg-divert --local --add --package docker-cli-rnapp --rename --divert /usr/bin/dockerd.disabled /usr/bin/dockerd
+dpkg-divert --local --add --package docker-cli-rnapp --rename --divert /usr/bin/docker-runc.disabled /usr/bin/docker-runc
