@@ -1,0 +1,62 @@
+#!/bin/sh
+
+set -e
+
+PACKAGE=docker-cli-rnapp
+APP_BIN=/apps/docker-cli-rnapp/bin
+
+add_diversion() {
+    path=$1
+    diverted_path=$2
+    app_target=$APP_BIN/$(basename "$path")
+
+    # Upgrades normally arrive with these diversions already registered by the
+    # previous release. Do not ask dpkg-divert to rename the files again: an
+    # existing docker-ce binary at the diversion destination makes that fail.
+    diverting_package=$(dpkg-divert --listpackage "$path" 2>/dev/null || true)
+    if [ "$diverting_package" = "$PACKAGE" ]; then
+        true_path=$(dpkg-divert --truename "$path")
+        if [ "$true_path" = "$diverted_path" ]; then
+            return 0
+        fi
+
+        echo "$PACKAGE: $path is already diverted to unexpected path $true_path" >&2
+        exit 1
+    fi
+
+    if [ -e "$diverted_path" ] || [ -L "$diverted_path" ]; then
+        # A failed purge/reinstall can leave docker-ce's preserved binary at
+        # *.disabled while the ReadyNAS app symlink has been recreated. The
+        # binary is already in its intended diverted location, so register the
+        # diversion without renaming it.
+        if [ ! -e "$path" ] && [ ! -L "$path" ]; then
+            dpkg-divert --local --add --package "$PACKAGE" \
+                --divert "$diverted_path" "$path"
+            return 0
+        fi
+
+        if [ -L "$path" ] && [ "$(readlink "$path")" = "$app_target" ]; then
+            rm -f "$path"
+            dpkg-divert --local --add --package "$PACKAGE" \
+                --divert "$diverted_path" "$path"
+            return 0
+        fi
+
+        echo "$PACKAGE: cannot divert $path: $diverted_path already exists" >&2
+        echo "$PACKAGE: refusing to overwrite files that are not managed by this app" >&2
+        exit 1
+    fi
+
+    dpkg-divert --local --add --package "$PACKAGE" --rename \
+        --divert "$diverted_path" "$path"
+}
+
+add_diversion /usr/bin/docker-containerd /usr/bin/docker-containerd.disabled
+add_diversion /usr/bin/docker-containerd-shim /usr/bin/docker-containerd-shim.disabled
+add_diversion /usr/bin/docker-containerd-ctr /usr/bin/docker-containerd-ctr.disabled
+add_diversion /usr/bin/docker /usr/bin/docker.disabled
+add_diversion /usr/bin/docker-init /usr/bin/docker-init.disabled
+add_diversion /usr/bin/docker-proxy /usr/bin/docker-proxy.disabled
+add_diversion /usr/bin/dockerd /usr/bin/dockerd.disabled
+add_diversion /usr/bin/docker-runc /usr/bin/docker-runc.disabled
+add_diversion /usr/bin/containerd-shim-runc-v2 /usr/bin/containerd-shim-runc-v2.disabled
