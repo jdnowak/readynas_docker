@@ -1,7 +1,7 @@
 Source: docker-cli-rnapp
 Section: contrib
 Priority: extra
-Maintainer: Gary Tessman <gary.tessman@gmail.com>
+Maintainer: Mhynlo <mhynlo@mhynlo.io>
 Build-Depends: debhelper (>= 8.0.0)
 Standards-Version: 3.9.8
 Homepage: https://www.docker.com/

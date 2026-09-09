@@ -1,0 +1,4 @@
+files/config.xml apps/docker-cli-rnapp
+files/logo.png apps/docker-cli-rnapp
+files/bin/* apps/docker-cli-rnapp/bin
+files/docker.service etc/systemd/system

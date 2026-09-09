@@ -1,36 +1,51 @@
 ## docker-cli-rnapp
-A repository with only the binary files for updating Docker on ReadyNAS.
 
-## Installation Options:
+A repository containing Docker static binaries packaged for ReadyNAS.
 
-### Install files manually:
-1. Turn off Docker CE CLI via ReadyNAS OS --> Apps. 
-2. Unpack docker-19.03.9.tgz (tar -xvzf docker-19.03.9.tgz) and copy it's contents to /usr/bin/
-3. Turn on Docker CE CLI app in ReadyNAS OS.
-### Note:
-- An old version number is unfortunately still shown, but the running binary is the manually installed version.
+## Available packages
 
-### Install files with debian package
-1. Install Docker CLI from ReadyNAS store
-2. Turn off Docker CE CLI via ReadyNAS OS --> Apps.
-3. Update files by downloading `releases\docker-cli-rnapp_19.03.9_amd64.deb`
-4. Install downloaded `docker-cli-rnapp_19.03.9_amd64.deb` file in ReadyNAS OS --> Apps --> Upload
-### Note:
-- Version number will be 19.03.0 in ReadyNAS Admin Apps page.
-- Installed files will be located in `/apps/docker-cli-rnapp/bin` and linked in /usr/bin
-- Original files in /usr/bin are diverted to *.disabled
-### Build DEB package:
-1. Follow steps here: https://github.com/ReadyNAS/sdk/wiki/Developing-Apps-with-VM
-2. SSH to virtualbox instance:  ssh netgear@127.0.0.1  (password: netgear)
-2. Clone this git repo on the ReadyNAS DEV VM with SDK.
-3. Run build.sh script to build
-4. Run clean.sh script to clean up generated files
-5. Generated deb package will be in releases directory
-### Helpful Links:
+- Latest: [`releases/docker-cli-rnapp_20.10.24_amd64.deb`](releases/docker-cli-rnapp_20.10.24_amd64.deb)
+- Legacy: [`releases/docker-cli-rnapp_19.03.9_amd64.deb`](releases/docker-cli-rnapp_19.03.9_amd64.deb)
+
+The Docker 20.10.24 binaries came from Docker's official static binary tarball:
+
+https://download.docker.com/linux/static/stable/x86_64/docker-20.10.24.tgz
+
+## Installation options
+
+### Install the files manually
+
+1. Turn off Docker CE CLI in ReadyNAS OS under **Apps**.
+2. Download and unpack the desired Docker static binary tarball, then copy its contents to `/usr/bin/`.
+3. Turn on the Docker CE CLI app in ReadyNAS OS.
+
+An old version number might still appear in the ReadyNAS interface, but the running binary is the manually installed version.
+
+### Install the Debian package
+
+1. Install Docker CLI from the ReadyNAS store.
+2. Turn off Docker CE CLI in ReadyNAS OS under **Apps**.
+3. Download the latest package: [`releases/docker-cli-rnapp_20.10.24_amd64.deb`](releases/docker-cli-rnapp_20.10.24_amd64.deb).
+4. In ReadyNAS OS, go to **Apps > Upload** and install `docker-cli-rnapp_20.10.24_amd64.deb`.
+
+The installed files are placed in `/apps/docker-cli-rnapp/bin` and linked into `/usr/bin`. Original files in `/usr/bin` are diverted to files ending in `.disabled`.
+
+## Build the Debian packages
+
+1. Follow the [ReadyNAS SDK VM instructions](https://github.com/ReadyNAS/sdk/wiki/Developing-Apps-with-VM).
+2. Connect to the VirtualBox instance with `ssh netgear@127.0.0.1` (password: `netgear`).
+3. Clone this repository on the ReadyNAS development VM with the SDK.
+4. Run in Bash `./build-all.sh` to build both packages. It also performs the per-project cleanup automatically.
+
+Generated Debian packages are placed in the `releases` directory.
+
+## Helpful links
+
 - [ReadyNAS SDK](https://github.com/ReadyNAS/sdk)
 - [ReadyNAS SDK Wiki](https://github.com/ReadyNAS/sdk/wiki)
-- [Other helful documentation](https://github-wiki-see.page/m/ReadyNAS/sdk/wiki_index)
- 
-## Contributions:
+- [Other helpful documentation](https://github-wiki-see.page/m/ReadyNAS/sdk/wiki_index)
+
+## Contributions
+
 - https://github.com/Mhynlo/readynas-docker-cli
 - https://github.com/jdnowak/readynas_docker

@@ -13,6 +13,7 @@ dh_perl
 dh_link
 dh_strip_nondeterminism
 dh_compress
+override_dh_fixperms dh_fixperms
 dh_fixperms
 dh_strip
 dh_makeshlibs

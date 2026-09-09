@@ -12,3 +12,7 @@ export DH_ALWAYS_EXCLUDE=.git
 
 %:
 	dh $@
+
+override_dh_fixperms:
+	dh_fixperms
+	chmod 0755 debian/docker-cli-rnapp/apps/docker-cli-rnapp/bin/*

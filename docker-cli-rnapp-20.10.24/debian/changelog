@@ -1,0 +1,7 @@
+docker-cli-rnapp (20.10.24) stable; urgency=medium
+
+  * Update bundled Docker static binaries to 20.10.24.
+  * Keep the ReadyNAS application directory accessible to Frontview after
+    Docker restricts its data-root permissions during startup.
+
+ -- Gary Tessman <gary.tessman@gmail.com>  Wed, 19 Aug 2026 18:55:00 -0700
